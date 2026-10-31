@@ -1,0 +1,7 @@
+# Ignora il file .env locale
+.env
+
+# File temporanei di sistema e IDE
+.DS_Store
+.vscode/
+.idea/
