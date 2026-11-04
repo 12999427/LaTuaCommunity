@@ -98,6 +98,31 @@ class Componente
         }
     }
 
+    public static function insertOne($pdo, $values)
+    {
+        try {
+            $sql = "INSERT INTO componenti (sigla, tensione_op_v_min, tensione_op_v_max, corrente_max_ma, interfaccia, package, note, link_datasheet, id_produttore, id_utente_pubblica)
+            VALUES (:sigla, :tensione_op_v_min, :tensione_op_v_max, :corrente_max_max, :interfaccia, :package, :note, :link_datasheet, :id_produttore, :id_utente_pubblica)";
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                ":sigla"=> $values[1],
+                ":tensione_op_v_min"=> $values[2],
+                ":tensione_op_v_max"=> $values[3],
+                ":corrente_max_max"=> $values[4],
+                ":interfaccia"=> $values[5],
+                ":package"=> $values[6],
+                ":note"=> $values[7],
+                ":link_datasheet"=> $values[8],
+                ":id_produttore"=> $values[9],
+                ":id_utente_pubblica"=> $values[10]
+            ]);
+            return $pdo->lastInsertId();
+        } catch(PDOException $e) {
+            return "Errore: " . $e->getMessage();
+        }
+    }
+
     public ?int $id_componente = null; // anche qui ? perchè necessario per quando fa fetchObject
     public ?string $sigla = null; // anche qui perchè necessario per quando fa fetchObject
     public ?float $tensione_op_v_min = null;

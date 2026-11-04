@@ -88,10 +88,14 @@
                         <button onclick='modificaRapida($c->id_componente)'>Modifica</button>
                     </td>
                     <td>
-                        <a href='elimina.php?id=$c->id_componente'>Elimina page</a>
+                        <!-- il onlcick serve per poterlo annullare -->
+                        <a href='elimina.php?id=$c->id_componente' onclick='return confirm(`Sei sicuro di voler eliminare questo componente?`);'>Elimina page</a>
                     </td>
                     <td>
-                        <button>Elimina</button>
+                        <form method='POST' action='elimina.php' onsubmit='return confirm(`Sei sicuro di voler eliminare?`);' style='display:inline;'>
+                        <input type='hidden' name='id_componente' value='$c->id_componente'>
+                        <button type='submit'>Elimina</button>
+                        </form>
                     </td>
                     </tr>"
                     ;

@@ -38,7 +38,7 @@
     <?php
     require_once("common/header.php");
     ?>
-    <h1>LaTuaCommunityPeruzzi - Visualizzazione database</h1>
+    <h1>LaTuaCommunityPeruzzi - Modifica record</h1>
     <br>
     <div>
         <!-- <form action="modifica.php" method="POST"> lasciare vuoto vuol dire stessa pagina -->
